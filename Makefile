@@ -1,11 +1,12 @@
 CC=gcc
 CFLAGS=-g -Wall -o
+SRC_DIR=./src
 
 build:
-	$(CC) $(CFLAGS) main main.c trie.c 
+	$(CC) $(CFLAGS) trie $(SRC_DIR)/main.c $(SRC_DIR)/trie.c 
 
 graphviz:
-	./main > input.dot | dot -Tsvg input.dot > output.svg
+	trie > input.dot | dot -Tsvg input.dot > output.svg
 
 clean:
-	rm main
+	rm trie

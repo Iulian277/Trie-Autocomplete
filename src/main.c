@@ -21,7 +21,7 @@ void *scp(void *ptr)
 {
     if (ptr == NULL)
     {
-        fprintf(stderr, "ERROR: Null pointer\n");
+        fprintf(stderr, "ERROR: Null pointer exception\n");
         exit(1);
     }
 
@@ -55,17 +55,22 @@ int main(int argc, char *argv[])
     // Dump trie into graphviz dot file
     if (strcmp(subcommand, "dot") == 0)
     {
-        char *output_filepath = "trie.dot";
+        char *output_filepath = "graphviz/trie.dot";
         printf("[INFO]: Generating %s\n", output_filepath);
         FILE *out = fopen(output_filepath, "w");
+        if (out == NULL)
+        {
+            fprintf(stderr, "[ERROR]: Could not write to file %s\n", output_filepath);
+            exit(1);
+        }
 
         fprintf(out, "digraph {\n");
         printTrie(out, root);
         fprintf(out, "}\n");
 
         fclose(out);
-        scc(system("dot -Tsvg trie.dot > output.svg"));
-        printf("[INFO]: Output available at output.svg\n");
+        scc(system("dot -Tsvg graphviz/trie.dot > graphviz/output.svg"));
+        printf("[INFO]: Output available at graphviz/output.svg\n");
     }
     // Autocomplete a given prefix
     else if (strcmp(subcommand, "complete") == 0)
