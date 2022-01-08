@@ -8,11 +8,11 @@
 #define _TRIE_
 
 #define ALPHABET_SIZE 256
-#define NODE_POOL_CAP 1024 // Maximum number of nodes in the trie
 
 typedef struct Node
 {
     bool end;
+    int index;
     struct Node *children[ALPHABET_SIZE];
 } Node;
 
@@ -23,6 +23,7 @@ void dfs(Node *root, int level);
 void printTrie(FILE *out, Node *root);
 
 void display(Node *root, char str[], int level);
+
 size_t getNodePoolCount();
 
 #endif

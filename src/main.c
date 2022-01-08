@@ -6,22 +6,29 @@
 #include "trie.h"
 #include "fruits.h"
 
-int scc(int code)
+void deallocate(Node **root)
+{
+    printf("[TODO]: Deallocate trie memory\n");
+}
+
+int scc(int code, Node **root)
 {
     if (code < 0)
     {
         fprintf(stderr, "ERROR: Return code %d\n", code);
+        deallocate(root);
         exit(1);
     }
 
     return code;
 }
 
-void *scp(void *ptr)
+void *scp(void *ptr, Node **root)
 {
     if (ptr == NULL)
     {
         fprintf(stderr, "ERROR: Null pointer exception\n");
+        deallocate(root);
         exit(1);
     }
 
@@ -61,15 +68,15 @@ int main(int argc, char *argv[])
         if (out == NULL)
         {
             fprintf(stderr, "[ERROR]: Could not write to file %s\n", output_filepath);
-            exit(1);
+            deallocate(&root);
         }
 
-        fprintf(out, "digraph {\n");
+        fprintf(out, "digraph Trie {\n");
         printTrie(out, root);
         fprintf(out, "}\n");
 
         fclose(out);
-        scc(system("dot -Tsvg graphviz/trie.dot > graphviz/output.svg"));
+        scc(system("dot -Tsvg graphviz/trie.dot > graphviz/output.svg"), &root);
         printf("[INFO]: Output available at graphviz/output.svg\n");
     }
     // Autocomplete a given prefix
@@ -80,7 +87,7 @@ int main(int argc, char *argv[])
         {
             usage(stderr, program);
             fprintf(stderr, "[ERROR]: No prefix is provided.\n");
-            exit(1);
+            deallocate(&root);
         }
         else
         {
@@ -94,7 +101,9 @@ int main(int argc, char *argv[])
     {
         usage(stderr, program);
         fprintf(stderr, "[ERROR]: Command %s not recognized.\n", subcommand);
-        exit(1);
+        deallocate(&root);
     }
+
+    deallocate(&root);
     return 0;
 }

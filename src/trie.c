@@ -1,13 +1,14 @@
 #include "main.h"
 #include "trie.h"
 
-Node node_pool[NODE_POOL_CAP] = {0}; // Array of maximum NODE_POOL_CAP nodes
-size_t node_pool_count = 0;          // Total current nodes in the 'node_pool' array
-
+size_t node_pool_count = 0; // Total current nodes in the trie
 Node *newNode()
 {
-    assert(node_pool_count < NODE_POOL_CAP);
-    return &node_pool[node_pool_count++];
+    Node *node = (Node *)scp(calloc(1, sizeof(Node)), NULL);
+    node->end = false;
+    node->index = node_pool_count++;
+
+    return node;
 }
 
 // Each node has a fixed value in the 'node_pool' array
@@ -33,12 +34,12 @@ void insertWord(Node *root, const char *word)
 
 void printTrie(FILE *out, Node *root)
 {
-    size_t index = root - node_pool;
+    size_t index = root->index;
     for (size_t i = 0; i < ALPHABET_SIZE; ++i)
     {
         if (root->children[i] != NULL)
         {
-            size_t child_index = root->children[i] - node_pool;
+            size_t child_index = root->children[i]->index;
             fprintf(out, "\tNode_%zu [label=\"%c\"", child_index, (char)i);
             if (root->children[i]->end)
                 fprintf(out, " shape=\"doublecircle\"");
