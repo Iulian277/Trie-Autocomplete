@@ -24,8 +24,8 @@ void insertWord(Node *root, const char *word)
 
     size_t index = (size_t)*word;
     // Convert everything to lowercase
-    if (isupper(*word))
-        index += 32;
+    // if (isupper(*word))
+    //     index += 32;
     if (root->children[index] == NULL)
         root->children[index] = newNode();
 
@@ -55,20 +55,47 @@ size_t getNodePoolCount()
     return node_pool_count;
 }
 
-void display(Node *root, char str[], int level)
+Node *searchPrefix(Node *root, const char *prefix, size_t level)
+{
+    if (root == NULL)
+        return NULL;
+
+    if (level == strlen(prefix))
+        return root; // Return the ending node of the prefix
+
+    size_t found_idx = -1;
+    for (size_t i = 0; i < ALPHABET_SIZE; ++i)
+    {
+        if (prefix[level] == i || toupper(prefix[level]) == i)
+        {
+            printf("%c\n", prefix[level]);
+            found_idx = i;
+            break;
+        }
+    }
+
+    if (found_idx == -1)
+        return NULL;
+
+    return searchPrefix(root->children[found_idx], prefix, level + 1);
+}
+
+// Display
+void autocompletePrefix(Node *root, char *str, size_t level, char *prefix)
 {
     if (root->end)
     {
+        printf("%s", prefix);
         str[level] = '\0';
         printf("%s\n", str);
     }
 
-    for (int i = 0; i < ALPHABET_SIZE; i++)
+    for (size_t i = 0; i < ALPHABET_SIZE; ++i)
     {
         if (root->children[i])
         {
-            str[level] = i;
-            display(root->children[i], str, level + 1);
+            str[level] = (char)i;
+            autocompletePrefix(root->children[i], str, level + 1, prefix);
         }
     }
 }

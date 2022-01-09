@@ -8,7 +8,17 @@
 
 void deallocate(Node **root)
 {
-    printf("[TODO]: Deallocate trie memory\n");
+    if ((*root) == NULL)
+        return;
+
+    // Base case
+    if ((*root)->end == true)
+        (*root)->end = false;
+
+    for (int i = 0; i < ALPHABET_SIZE; ++i)
+        deallocate(&(*root)->children[i]);
+
+    free(*root);
 }
 
 int scc(int code, Node **root)
@@ -69,6 +79,7 @@ int main(int argc, char *argv[])
         {
             fprintf(stderr, "[ERROR]: Could not write to file %s\n", output_filepath);
             deallocate(&root);
+            exit(1);
         }
 
         fprintf(out, "digraph Trie {\n");
@@ -88,13 +99,25 @@ int main(int argc, char *argv[])
             usage(stderr, program);
             fprintf(stderr, "[ERROR]: No prefix is provided.\n");
             deallocate(&root);
+            exit(1);
         }
         else
         {
-            printf("[TODO]: Autocomplete for this prefix: %s\n", prefix);
             // Convert prefix to lowercase
-            for (size_t i = 0; i < strlen(prefix); ++i)
-                prefix[i] = tolower(prefix[i]);
+            // for (size_t i = 0; i < strlen(prefix); ++i)
+            //     prefix[i] = tolower(prefix[i]);
+
+            // Search the prefix in the trie
+            char *prefix_search = prefix;
+            Node *end_of_prefix = searchPrefix(root, prefix_search, 0);
+            if (end_of_prefix == NULL)
+                printf("[INFO]: Prefix '%s' didn't found in trie\n", prefix);
+            else
+            {
+                printf("[INFO]: Prefix '%s' found in trie\n", prefix);
+                char str[ALPHABET_SIZE];
+                autocompletePrefix(end_of_prefix, str, 0, prefix_search);
+            }
         }
     }
     else
@@ -102,6 +125,7 @@ int main(int argc, char *argv[])
         usage(stderr, program);
         fprintf(stderr, "[ERROR]: Command %s not recognized.\n", subcommand);
         deallocate(&root);
+        exit(1);
     }
 
     deallocate(&root);

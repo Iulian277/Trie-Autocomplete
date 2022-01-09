@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-g -Wall -o
 SRC_DIR=./src
 GRAPH_DIR=./graphviz
-VALGRIND_FLAGS=--tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes
+VALGRIND_FLAGS=--tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20
 
 .PHONY: build graphviz autocomplete graphviz clean
 

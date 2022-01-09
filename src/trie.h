@@ -22,7 +22,8 @@ void insertWord(Node *root, const char *word);
 void dfs(Node *root, int level);
 void printTrie(FILE *out, Node *root);
 
-void display(Node *root, char str[], int level);
+Node *searchPrefix(Node *root, const char *prefix, size_t level);
+void autocompletePrefix(Node *root, char *str, size_t level, char *prefix);
 
 size_t getNodePoolCount();
 

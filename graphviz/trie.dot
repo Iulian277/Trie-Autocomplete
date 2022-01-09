@@ -1,5 +1,5 @@
 digraph Trie {
-	Node_1 [label="a"]
+	Node_1 [label="A"]
 	Node_0 -> Node_1
 	Node_2 [label="p"]
 	Node_1 -> Node_2
@@ -35,7 +35,7 @@ digraph Trie {
 	Node_16 -> Node_17
 	Node_18 [label="o" shape="doublecircle"]
 	Node_17 -> Node_18
-	Node_19 [label="b"]
+	Node_19 [label="B"]
 	Node_0 -> Node_19
 	Node_20 [label="a"]
 	Node_19 -> Node_20
@@ -147,7 +147,7 @@ digraph Trie {
 	Node_62 -> Node_63
 	Node_64 [label="y" shape="doublecircle"]
 	Node_63 -> Node_64
-	Node_65 [label="c"]
+	Node_65 [label="C"]
 	Node_0 -> Node_65
 	Node_329 [label="a"]
 	Node_65 -> Node_329
@@ -313,7 +313,7 @@ digraph Trie {
 	Node_128 -> Node_129
 	Node_130 [label="e" shape="doublecircle"]
 	Node_129 -> Node_130
-	Node_131 [label="d"]
+	Node_131 [label="D"]
 	Node_0 -> Node_131
 	Node_132 [label="a"]
 	Node_131 -> Node_132
@@ -359,7 +359,7 @@ digraph Trie {
 	Node_151 -> Node_152
 	Node_153 [label="n" shape="doublecircle"]
 	Node_152 -> Node_153
-	Node_154 [label="e"]
+	Node_154 [label="E"]
 	Node_0 -> Node_154
 	Node_155 [label="l"]
 	Node_154 -> Node_155
@@ -379,7 +379,7 @@ digraph Trie {
 	Node_161 -> Node_162
 	Node_163 [label="y" shape="doublecircle"]
 	Node_162 -> Node_163
-	Node_164 [label="f"]
+	Node_164 [label="F"]
 	Node_0 -> Node_164
 	Node_165 [label="e"]
 	Node_164 -> Node_165
@@ -395,7 +395,7 @@ digraph Trie {
 	Node_164 -> Node_170
 	Node_171 [label="g" shape="doublecircle"]
 	Node_170 -> Node_171
-	Node_172 [label="g"]
+	Node_172 [label="G"]
 	Node_0 -> Node_172
 	Node_173 [label="o"]
 	Node_172 -> Node_173
@@ -457,7 +457,7 @@ digraph Trie {
 	Node_206 -> Node_207
 	Node_208 [label="a" shape="doublecircle"]
 	Node_207 -> Node_208
-	Node_209 [label="h"]
+	Node_209 [label="H"]
 	Node_0 -> Node_209
 	Node_210 [label="o"]
 	Node_209 -> Node_210
@@ -503,7 +503,7 @@ digraph Trie {
 	Node_226 -> Node_227
 	Node_228 [label="y" shape="doublecircle"]
 	Node_227 -> Node_228
-	Node_229 [label="j"]
+	Node_229 [label="J"]
 	Node_0 -> Node_229
 	Node_230 [label="a"]
 	Node_229 -> Node_230
@@ -577,7 +577,7 @@ digraph Trie {
 	Node_263 -> Node_264
 	Node_265 [label="y" shape="doublecircle"]
 	Node_264 -> Node_265
-	Node_266 [label="k"]
+	Node_266 [label="K"]
 	Node_0 -> Node_266
 	Node_267 [label="i"]
 	Node_266 -> Node_267
@@ -613,7 +613,7 @@ digraph Trie {
 	Node_281 -> Node_282
 	Node_283 [label="t" shape="doublecircle"]
 	Node_282 -> Node_283
-	Node_284 [label="l"]
+	Node_284 [label="L"]
 	Node_0 -> Node_284
 	Node_285 [label="e"]
 	Node_284 -> Node_285
@@ -657,7 +657,7 @@ digraph Trie {
 	Node_303 -> Node_304
 	Node_305 [label="e" shape="doublecircle"]
 	Node_304 -> Node_305
-	Node_306 [label="m"]
+	Node_306 [label="M"]
 	Node_0 -> Node_306
 	Node_307 [label="a"]
 	Node_306 -> Node_307
@@ -753,7 +753,7 @@ digraph Trie {
 	Node_367 -> Node_368
 	Node_369 [label="y" shape="doublecircle"]
 	Node_368 -> Node_369
-	Node_370 [label="n"]
+	Node_370 [label="N"]
 	Node_0 -> Node_370
 	Node_379 [label="a"]
 	Node_370 -> Node_379
@@ -779,7 +779,7 @@ digraph Trie {
 	Node_376 -> Node_377
 	Node_378 [label="e" shape="doublecircle"]
 	Node_377 -> Node_378
-	Node_383 [label="o"]
+	Node_383 [label="O"]
 	Node_0 -> Node_383
 	Node_384 [label="l"]
 	Node_383 -> Node_384
@@ -799,7 +799,7 @@ digraph Trie {
 	Node_390 -> Node_391
 	Node_392 [label="e" shape="doublecircle"]
 	Node_391 -> Node_392
-	Node_426 [label="p"]
+	Node_426 [label="P"]
 	Node_0 -> Node_426
 	Node_427 [label="a"]
 	Node_426 -> Node_427
@@ -973,7 +973,7 @@ digraph Trie {
 	Node_510 -> Node_511
 	Node_512 [label="n" shape="doublecircle"]
 	Node_511 -> Node_512
-	Node_513 [label="q"]
+	Node_513 [label="Q"]
 	Node_0 -> Node_513
 	Node_514 [label="u"]
 	Node_513 -> Node_514
@@ -985,7 +985,7 @@ digraph Trie {
 	Node_516 -> Node_517
 	Node_518 [label="e" shape="doublecircle"]
 	Node_517 -> Node_518
-	Node_194 [label="r"]
+	Node_194 [label="R"]
 	Node_0 -> Node_194
 	Node_195 [label="a"]
 	Node_194 -> Node_195
@@ -1041,7 +1041,7 @@ digraph Trie {
 	Node_549 -> Node_550
 	Node_551 [label="t" shape="doublecircle"]
 	Node_550 -> Node_551
-	Node_526 [label="s"]
+	Node_526 [label="S"]
 	Node_0 -> Node_526
 	Node_527 [label="a"]
 	Node_526 -> Node_527
@@ -1167,7 +1167,7 @@ digraph Trie {
 	Node_601 -> Node_602
 	Node_603 [label="y" shape="doublecircle"]
 	Node_602 -> Node_603
-	Node_417 [label="t"]
+	Node_417 [label="T"]
 	Node_0 -> Node_417
 	Node_418 [label="a"]
 	Node_417 -> Node_418
@@ -1203,7 +1203,7 @@ digraph Trie {
 	Node_423 -> Node_424
 	Node_425 [label="e" shape="doublecircle"]
 	Node_424 -> Node_425
-	Node_613 [label="u"]
+	Node_613 [label="U"]
 	Node_0 -> Node_613
 	Node_614 [label="g"]
 	Node_613 -> Node_614
@@ -1223,7 +1223,7 @@ digraph Trie {
 	Node_620 -> Node_621
 	Node_622 [label="t" shape="doublecircle"]
 	Node_621 -> Node_622
-	Node_341 [label="w"]
+	Node_341 [label="W"]
 	Node_0 -> Node_341
 	Node_342 [label="a"]
 	Node_341 -> Node_342
@@ -1243,7 +1243,7 @@ digraph Trie {
 	Node_348 -> Node_349
 	Node_350 [label="n" shape="doublecircle"]
 	Node_349 -> Node_350
-	Node_623 [label="y"]
+	Node_623 [label="Y"]
 	Node_0 -> Node_623
 	Node_624 [label="u"]
 	Node_623 -> Node_624
