@@ -13,11 +13,10 @@ valgrind: build
 	valgrind $(VALGRIND_FLAGS) ./trie dot
 
 autocomplete: build
-	@read -p "Enter the prefix: " prefix;\
-	./trie complete $$prefix
+	@read -p "Enter the prefix: " prefix; ./trie complete $$prefix
 
 graphviz: build
-	./trie dot > $(GRAPH_DIR)/trie.dot | dot -Tsvg $(GRAPH_DIR)/trie.dot > $(GRAPH_DIR)/output.svg
+	./trie dot | dot -Tsvg $(GRAPH_DIR)/trie.dot > $(GRAPH_DIR)/output.svg
 
 clean:
 	rm trie

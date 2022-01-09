@@ -24,15 +24,16 @@ void insertWord(Node *root, const char *word)
 
     size_t index = (size_t)*word;
     // Convert everything to lowercase
-    // if (isupper(*word))
-    //     index += 32;
+    if (isupper(*word))
+        index += 32;
+
     if (root->children[index] == NULL)
         root->children[index] = newNode();
 
     insertWord(root->children[index], word + 1);
 }
 
-void printTrie(FILE *out, Node *root)
+void dumpRoot(FILE *out, Node *root)
 {
     size_t index = root->index;
     for (size_t i = 0; i < ALPHABET_SIZE; ++i)
@@ -45,14 +46,9 @@ void printTrie(FILE *out, Node *root)
                 fprintf(out, " shape=\"doublecircle\"");
             fprintf(out, "]\n");
             fprintf(out, "\tNode_%zu -> Node_%zu\n", index, child_index);
-            printTrie(out, root->children[i]);
+            dumpRoot(out, root->children[i]);
         }
     }
-}
-
-size_t getNodePoolCount()
-{
-    return node_pool_count;
 }
 
 Node *searchPrefix(Node *root, const char *prefix, size_t level)
@@ -66,9 +62,8 @@ Node *searchPrefix(Node *root, const char *prefix, size_t level)
     size_t found_idx = -1;
     for (size_t i = 0; i < ALPHABET_SIZE; ++i)
     {
-        if (prefix[level] == i || toupper(prefix[level]) == i)
+        if (prefix[level] == i)
         {
-            printf("%c\n", prefix[level]);
             found_idx = i;
             break;
         }
@@ -80,7 +75,6 @@ Node *searchPrefix(Node *root, const char *prefix, size_t level)
     return searchPrefix(root->children[found_idx], prefix, level + 1);
 }
 
-// Display
 void autocompletePrefix(Node *root, char *str, size_t level, char *prefix)
 {
     if (root->end)

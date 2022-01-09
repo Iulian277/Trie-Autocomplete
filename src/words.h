@@ -5,7 +5,6 @@
 
 const char *fruits[] = {
     "Apple",
-    "Apple22",
     "Apricot",
     "Avocado",
     "Banana",

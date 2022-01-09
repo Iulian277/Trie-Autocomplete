@@ -1,10 +1,6 @@
-// This is the entry point of the program
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <ctype.h>
+#include "main.h"
 #include "trie.h"
-#include "fruits.h"
+#include "words.h"
 
 void deallocate(Node **root)
 {
@@ -53,6 +49,7 @@ void usage(FILE *file, const char *program)
     fprintf(file, "     complete <prefix>     Suggest prefix autocompletion based on the Trie.\n");
 }
 
+// This is the entry point of the program
 int main(int argc, char *argv[])
 {
     char *program = *argv++;
@@ -83,7 +80,7 @@ int main(int argc, char *argv[])
         }
 
         fprintf(out, "digraph Trie {\n");
-        printTrie(out, root);
+        dumpRoot(out, root);
         fprintf(out, "}\n");
 
         fclose(out);
@@ -104,8 +101,8 @@ int main(int argc, char *argv[])
         else
         {
             // Convert prefix to lowercase
-            // for (size_t i = 0; i < strlen(prefix); ++i)
-            //     prefix[i] = tolower(prefix[i]);
+            for (size_t i = 0; i < strlen(prefix); ++i)
+                prefix[i] = tolower(prefix[i]);
 
             // Search the prefix in the trie
             char *prefix_search = prefix;
@@ -114,7 +111,7 @@ int main(int argc, char *argv[])
                 printf("[INFO]: Prefix '%s' didn't found in trie\n", prefix);
             else
             {
-                printf("[INFO]: Prefix '%s' found in trie\n", prefix);
+                printf("[INFO]: Autocomplete versions for prefix '%s':\n", prefix);
                 char str[ALPHABET_SIZE];
                 autocompletePrefix(end_of_prefix, str, 0, prefix_search);
             }
