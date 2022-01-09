@@ -66,8 +66,14 @@ int main(int argc, char *argv[])
         insertWord(root, fruits[i]);
 
     char *subcommand = *argv++;
+    if (strcmp(subcommand, "--help") == 0)
+    {
+        usage(stderr, program);
+        deallocate(&root);
+        exit(1);
+    }
     // Dump trie into graphviz dot file
-    if (strcmp(subcommand, "dot") == 0)
+    else if (strcmp(subcommand, "dot") == 0)
     {
         char *output_filepath = "graphviz/trie.dot";
         printf("[INFO]: Generating %s\n", output_filepath);

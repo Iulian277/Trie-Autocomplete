@@ -1,10 +1,10 @@
 CC=gcc
-CFLAGS=-g -Wall -o
+CFLAGS=-g -Wall -pedantic -o
 SRC_DIR=./src
 GRAPH_DIR=./graphviz
 VALGRIND_FLAGS=--tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20
 
-.PHONY: build graphviz autocomplete graphviz clean
+.PHONY: build valgrind complete graphviz clean
 
 build:
 	$(CC) $(CFLAGS) trie $(SRC_DIR)/main.c $(SRC_DIR)/trie.c 
@@ -12,11 +12,12 @@ build:
 valgrind: build
 	valgrind $(VALGRIND_FLAGS) ./trie dot
 
-autocomplete: build
-	@read -p "Enter the prefix: " prefix; ./trie complete $$prefix
+complete: build
+	@read -p "Enter the prefix: " prefix;\
+	./trie complete $$prefix
 
 graphviz: build
-	./trie dot | dot -Tsvg $(GRAPH_DIR)/trie.dot > $(GRAPH_DIR)/output.svg
+	./trie dot
 
 clean:
 	rm trie
