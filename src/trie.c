@@ -11,7 +11,6 @@ Node *newNode()
     return node;
 }
 
-// Each node has a fixed value in the 'node_pool' array
 void insertWord(Node *root, const char *word)
 {
     assert(root != NULL);
