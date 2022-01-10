@@ -19,4 +19,4 @@ void dumpRoot(FILE *out, Node *root);
 Node *searchPrefix(Node *root, const char *prefix, size_t level);
 void autocompletePrefix(Node *root, char *str, size_t level, char *prefix);
 
-#endif
+#endif // _TRIE_
