@@ -10,7 +10,7 @@ $ ./trie --help # for usage
 ```
 
 ### Dump the Trie as SVG (Requires [Graphviz](https://graphviz.org/))
-```
+```console
 $ ./trie dot
 $ # open ./graphviz/output.svg
 ```
