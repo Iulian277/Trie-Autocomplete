@@ -21,7 +21,7 @@ int scc(int code, Node **root)
 {
     if (code < 0)
     {
-        fprintf(stderr, "ERROR: Return code %d\n", code);
+        fprintf(stderr, "[ERROR]: Return code %d\n", code);
         deallocate(root);
         exit(1);
     }
@@ -33,7 +33,7 @@ void *scp(void *ptr, Node **root)
 {
     if (ptr == NULL)
     {
-        fprintf(stderr, "ERROR: Null pointer exception\n");
+        fprintf(stderr, "[ERROR]: Null pointer exception\n");
         deallocate(root);
         exit(1);
     }
